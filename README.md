@@ -13,7 +13,7 @@ The app is designed to update and export the following image data:
 
 There are 2 options to use:
 
-**Before running, please make sure the team names and rosters are already set in the ROM**
+**Before running, please make sure the team names and rosters are already set in the ROM!!**
 
 1. Extract Images
     - Choose a ROM, set the number of active teams, and click the Extract Images button. The app will output a folder with the ROMs name containing image assets for each team (listed by team 
