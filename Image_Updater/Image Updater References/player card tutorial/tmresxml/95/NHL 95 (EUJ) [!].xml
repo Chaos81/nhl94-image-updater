@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE tmres SYSTEM "tmres.dtd">
+<tmres>
+ <bookmarks>
+<bookmark offset="662116" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #001 - 000A1A64</description>
+</bookmark>
+<bookmark offset="663194" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #002 - 000A1E94</description>
+</bookmark>
+<bookmark offset="705302" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #050 - 000AC316</description>
+</bookmark>
+<bookmark offset="707206" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #052 - 000ACA86</description>
+</bookmark>
+<bookmark offset="712630" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #058 - 000ADFB6</description>
+</bookmark>
+<bookmark offset="720628" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #067 - 000AFEF4</description>
+</bookmark>
+<bookmark offset="730350" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #078 - 000B24EE</description>
+</bookmark>
+<bookmark offset="736576" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #085 - 000B3D40</description>
+</bookmark>
+<bookmark offset="740228" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #089 - 000B4B84</description>
+</bookmark>
+<bookmark offset="743904" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #093 - 000B59E0</description>
+</bookmark>
+<bookmark offset="786886" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #142 - 000C01C6</description>
+</bookmark>
+<bookmark offset="801900" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #159 - 000C3C6C</description>
+</bookmark>
+<bookmark offset="803828" columns="6" rows="6" blockwidth="6" blockheight="6" rowinterleaved="false" sizeblocktocanvas="true" mode="1D" palIndex="0" codec="LN99">
+  <description>Player Card #161 - 000C43F4</description>
+</bookmark>
+ </bookmarks>
+ <palettes>
+<palette size="8" direct="yes" codec="CF05" endianness="big">
+  <description>TM - 8 Color Hex Grayscale</description>
+  <data>0EEE00000CCC0AAA0888066604440222</data>
+</palette>
+<palette size="8" direct="yes" codec="CF01" endianness="big">
+  <description>TM - 8 Color Gens Grayscale</description>
+  <data>F8FCF8000000D8D8D8B0B4B0909090686C68484848202420</data>
+</palette>
+<palette size="8" direct="yes" codec="CF01" endianness="big">
+  <description>TM - 8 Color Evenly Distributed Grayscale</description>
+  <data>FFFFFF000000DBDBDBB6B6B69292926D6D6D494949242424</data>
+</palette>
+<palette size="8" direct="no" offset="663022" codec="CF05" endianness="big">
+  <description>Player Card Template - 000A1DEE</description>
+</palette>
+ </palettes>
+</tmres>

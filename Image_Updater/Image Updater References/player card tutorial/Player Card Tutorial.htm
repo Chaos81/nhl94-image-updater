@@ -1,0 +1,629 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Player Card Tutorial &ndash; wboy &ndash; www.hexaddicts.com</title>
+<style type="text/css">
+<!--
+.Doc_Footer {	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 9px;
+}
+.Doc_Header {	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 18pt;
+}
+.Doc_Step {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #66CC00;
+	font-weight: bold;
+}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+-->
+</style>
+</head>
+
+<body>
+<div align="center">
+  <p><span class="Doc_Header">PLAYER CARD TUTORIAL </span></p>
+  <p align="center" class="Doc_Footer">last updated 22nd November 2005</p>
+  <p align="center" class="Doc_Footer"><img src="images/tut/wboy3bpp.png" width="48" height="48"></p>
+  <p align="center" class="Doc_Footer">by wboy &ndash; <a href="http://www.hexaddicts.com">www.hexaddicts.com</a></p>
+  <table width="520" border="0" cellpadding="1" cellspacing="1" aling >
+    <tr>
+      <td width="516" bgcolor="#66FFFF" class="Doc_PreReq"><div align="center"><strong>&ndash;&ndash;&ndash; REQUIREMENTS &ndash;&ndash;&ndash;</strong></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td> <div align="left"><strong>Tile Molester 0.16</strong> &ndash; <a href="http://www.stud.ntnu.no/~kenth/tm/" target="_blank">http://www.stud.ntnu.no/~kenth/tm/</a></div></td>
+    </tr>
+    <tr>
+      <td><div align="left">SnowBro Software's (Kent Hansen) next generation, platform independant ROM tile editing software. Effectively an upgrade to Tile Layer Pro, Tile Molester offers many advantages over Tile Layer Pro, including support for the 3bpp linear codec needed to edit the NHL 94 and NHL 95 player cards. Much thanks goes to Kent as without this fine piece of software, this tutorial would have not been possible!</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td> <div align="left"><strong>J2SE Runtime Environment (JRE)</strong> &ndash; <a href="http://java.sun.com/j2se/1.5.0/download.jsp" target="_blank">http://java.sun.com/j2se/1.5.0/download.jsp</a></div></td>
+    </tr>
+    <tr>
+      <td><div align="left">Follow the &quot;Download JRE 5.0 Update 5&quot; link and download the appropiate version installation, for example &quot;Windows Offline Installation, Multi-language&quot;. This component is required by Tile Molester.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left"><strong>Gens Emulator</strong> &ndash; <a href="http://gens.consolemul.com/" target="_blank">http://gens.consolemul.com/</a></div></td>
+    </tr>
+    <tr>
+      <td><div align="left">The very well known Genesis/MegaDrive emulator is essential when wanting to test the player card changes made to your ROM. </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td> <div align="left"><strong>Binary ROM Dumps &ndash;</strong> based on  <a href="http://www.google.com/search?q=%22NHL+Hockey+94+(UE)+%5B!%5D.zip%22" target="_blank">NHL Hockey 94 (UE) [!].bin</a> or <a href="http://www.google.com/search?q=%22NHL+95+(EUJ)+%5B!%5D.zip%22" target="_blank">NHL 95 (EUJ) [!].bin</a></div></td>
+    </tr>
+    <tr>
+      <td><div align="left">Ensure that the ROM is in BIN not SMD format, and that you have also applied a ROM checksum hack to allow you to successful test your changes. Both of these tasks are automatically performed on any ROM  opened and saved within <a href="http://www.hexaddicts.com/nose" target="_blank">NOSE</a>, the NHL Old Skool Editor. </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left"><strong>IPS Patcher</strong> &ndash; I recommended <a href="http://zerosoft.zophar.net/ipswin.htm" target="_blank">Zerosoft IPSWin 2.0</a> or <a href="http://stealth.emulationzone.org/Utils/StealthPatch/" target="_blank">Stealth Patch</a></div></td>
+    </tr>
+    <tr>
+      <td><div align="left">Required to apply the .IPS patch files I have created to correct all occurances of player cards with shared tiles, allowing you to easily update the existing photographs.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left"><strong>Adobe Acrobat Reader</strong> &ndash; <a href="http://www.adobe.com/products/acrobat/readermain.html" target="_blank">http://www.adobe.com/products/acrobat/readermain.html</a></div></td>
+    </tr>
+    <tr>
+      <td><div align="left">Required to view and print some of the supplementary documents provided with the tutorial distribution.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td bgcolor="#66FFFF"><div align="center"><strong><span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span> UPDATING PLAYER CARDS IN TILE MOLESTER <span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span></strong></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left"><strong>BEFORE YOU START:</strong> The steps below are based on NHL 94 related offsets. Simply substitute the appropriate NHL 95 offsets if you are working with a NHL 95 based ROM. These offsets can be found in the supplementary pages/documents provided with the tutorial distribution.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Set your desktop screen resolution to at minimum of <strong>1024x768</strong> at <strong>16bit</strong> colors.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Launch &quot;<strong>Tile Molester</strong>&quot; (TM). TM v 0.16 as used for this tutorial. </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><span class="unnamed1"><a href="images/tut/tm_00.png" target="_blank"><img src="images/tut/tm_00.png" width="512" height="370" border="2"></a></span></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Bring up the file &quot;<strong>Open</strong>&quot; dialog box. </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td> <div align="left">Change the &quot;<strong>Files of Type</strong>&quot; to &quot;<strong>All Files (*.*)</strong>&quot; to allow you to see the .BIN extension ROMs.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Open a NHL 94 based ROM.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_01.png" target="_blank"><img src="images/tut/tm_01.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">As the .BIN extension ROM  is a generic extension that TM does not automatically associate to Sega Genesis ROMs, it will open and display the tiles of the ROM using the default &quot;2bpp planar&quot; codec.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_02.png" target="_blank"><img src="images/tut/tm_02.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">In terms of size, the player cards  are 48x48 pixels. This is stored in the ROM as 36 tiles stored in a 6 columns x 6 rows formation, with each tile being 8x8 pixels in size.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">To help us better see the player cards, set the canvas size accordingly.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_03.png" target="_blank"><img src="images/tut/tm_03.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">In terms of colors, the player cards use  8 color  BGR. Using only 8 colors allows the ROM to store the tiles in a &quot;3bpp linear&quot; byte format. This  effectively provides basic compression  when compared to the usual &quot;4bpp linear&quot;, 16 color BGR format used to store most the graphic tiles. The downside of using &quot;3bpp linear&quot; compression is that you must know the starting offset of the player card graphic bytes to see the associated tiles correctly.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">To allow us better to see the player cards, set the codec to &quot;<strong>3bpp linear</strong>&quot;.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_04.png" target="_blank"><img src="images/tut/tm_04.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">You will notice your active palette is now 8 colors in length. Rather than manually changing the colors to match the BGR grayscale used by the player cards, we can import this information from the loaded ROM , or as TM refers to it, &quot;<strong>This File</strong>&quot;.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">The entered offset must be in decimal. The player card palette is stored within the data structure of the first player card, at the decimal offset &quot;<strong>812940</strong>&quot; (for NHL 95, use the decimal offset &quot;663022&quot;). Set the palette &quot;Size&quot; to &quot;<strong>8</strong>&quot;, &quot;Format&quot; to &quot;<strong>9bpp BGR (Genesis)</strong>&quot; and the &quot;Byte Order&quot; to &quot;<strong>Motorola</strong>&quot;, and click &quot;<strong>OK</strong>&quot;.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left"><strong>NOTE:</strong> It is important to know that when importing the palette from the decimal offset of the loaded ROM , any color changed in the on-screen active palette within TM will also be changed in the ROM. This is because the decimal offset entered is stored and the colors are dynamically read. This is different to when you create a new palette and manually set the colors yourself, which effectively creates a standalone palette.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_05.png" target="_blank"><img src="images/tut/tm_05.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">TM is now best prepared to view and update player cards. Referring to the either the Player Card HTML or PDF files provided with this tutorial, use the &quot;<strong>Go To</strong>&quot; feature to jump to the first player card. Use the hexadecimal value  from the TM Offset Hex column, which for  is &quot;<strong>000C6402</strong>&quot; (for NHL 95, use &quot;000A1A64&quot;).</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_07.png" target="_blank"><img src="images/tut/tm_07.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">The player card located at hexadecimal &quot;000C6402&quot; will appear. Interestingly, this player card only appears to be used as a template for the majority of the player card stored within the ROM , and is never actually shown in-game even though I have successfully tested it can be used!</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">There are 9 player cards of the 149 in total that refer to their own template details, as they use shared tiles that effectively makes them more difficult to update. Information (and a IPS patch file) to  fix the problem created by player cards with shared tiles is provided later in this tutorial.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_08.png" target="_blank"><img src="images/tut/tm_08.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">The player card data in the ROM  is not stored in a manor that allows you to simply arrow down/slide the scroll bar to the next player card. This is because each player card contain 10 bytes of header data that prefix the &quot;3bpp linear&quot; tile data which effectively breaks up the &quot;3bpp linear&quot; compression, causing it to display the tiles incorrectly.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">To successfully get to the next player card, use the &quot;<strong>Go To</strong>&quot; feature to jump to the next listed offset &quot;<strong>000C6838</strong>&quot; (for NHL 95, use &quot;<strong>000A1E9A</strong>&quot;).</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_09.png" target="_blank"><img src="images/tut/tm_09.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">As you will most likely notice, the player card at 
+  hexadecimal &quot;000C6838&quot; is used in-game to show all &quot;Handedness Left &quot; players without personalised player cards. </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">To replace this player card with your own, create a <strong>48x48 pixel image</strong> using your preferred graphics editor, and save in <strong>BMP</strong> or <strong>PNG</strong> format.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">From the &quot;<strong>Paste From</strong>&quot; dialog, open your player card image file.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_10.png" target="_blank"><img src="images/tut/tm_10.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Your  image will  placed effectively be on the clipboard over the existing player card. To commit the new image, simply  press <strong>[Esc]</strong> or alternatively, click on the unused window space surrounding the player card/clipboard selection (typically dark gray in color).</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left"><strong>NOTE:</strong> TM will best attempt to match the colors of the pasted image to the colors of the active palette. While TM does a very decent job of converting the image to the active palette, you can try and get better results by preparing your image in your favorite graphics editing software. Dither the image down to a 8 color grayscale that match the shades of gray in  TM's active palette.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Save the loaded ROM , and open it in the Gens emulator to test your changes.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_11.png" target="_blank"><img src="images/tut/tm_11.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Now that wasn't too hard now was it! <strong>:)</strong> </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td bgcolor="#66FFFF"><div align="center"><strong><span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span> QUICKLY NAVIGATING PLAYER CARDS IN TILE MOLESTER <span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span></strong></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">With TM's graphic bookmarking and palette storing support, I have included specially prepared resources (.XML files) to help you navigate through the player cards within the ROMs.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Before opening your ROM  in TM, copy the appropriate .XML file in TM's &quot;<strong>resources</strong>&quot; sub folder. Rename the .XML to match the ROM  filename you will be editing, for example: &quot;<strong>NHL Hockey 94 [h] - Editing Player Cards.xml</strong>&quot;.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Now when you open the &quot;<strong>NHL Hockey 94 [h] - Editing Player Cards.bin</strong>&quot; ROM, TM will load the resource information (bookmarks and palettes) contained within the .XML file.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_12.png" target="_blank"><img src="images/tut/tm_12.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Under the &quot;<strong>Navigate</strong>&quot; menu, you will find the first player card bookmarked, followed by bookmarks for the player cards are after a  player card that contained it's own palette and tile layout bytes (as the previous card  has shared tiles, or previously had if you have applied the .IPS patch).</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Under the &quot;<strong>Palette</strong>&quot; menu, you will find the palette that linked to the first player card template, and three additional palettes I have set up independent to the ROM. You can use the additional palettes when pasting in new player cards images in attempt to improve TM's color conversion to active palette. Experiment with these yourself to see what I mean. </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">The majority of player cards within both year's ROMs share the first player card template's palette and tile layout information. For these player cards, their 10 byte header reads 00000000 00000000 0024. As such player cards only contain the &quot;3bpp linear&quot; tile date to reconstruct the image in-game, the majority of the players cards are hexadecimal <strong>&quot;036A&quot;</strong> bytes apart.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><p align="left">Using the &quot;<strong>Go To Offset</strong>&quot; feature, enter the &quot;Offset&quot; as &quot;<strong>36A</strong>&quot;, set the &quot;Radix&quot; to &quot;<strong>Hex</strong>&quot;, and set the &quot;Mode&quot; to &quot;<strong>Relative</strong>&quot; to go &quot;036A&quot; hexadecimal bytes from the current offset. Click &quot;<strong>OK</strong>&quot; to be taken to the next player card.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_13.png" target="_blank"><img src="images/tut/tm_13.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">By pressing <strong>[F5]</strong>, you can repeat the &quot;Go To Offset&quot; function to  again go &quot;036A&quot; hexadecimal bytes from the current offset, taking you to the next player card.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">When the player cards does not appear correctly, you have ever come across a player card with shared tiles, or the previous player card contained its own palette and/or tile layout bytes which effectively breaks the hexadecimal &quot;036A&quot; spacing rule. When the latter occurs, simply select the next player card bookmark in order from the &quot;<strong>Navigate</strong>&quot; menu.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Using these methods, you should be able to quickly learn how to navigate though all the player cards rather than using the go to feature and cut and pasting in the appropriate &quot;Absolute&quot; offset every time.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/tm_14.png" target="_blank"><img src="images/tut/tm_14.png" width="512" height="370" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td bgcolor="#66FFFF"><div align="center"><strong><span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span> PLAYER CARD DATA STRUCTURE <span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span></strong></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">The first 10 bytes of every player card contains 4 bytes which store the offset (plus) value of the palette data, the next 4 bytes which store the offset (plus) value for the tile layout data, and finally the last 2 bytes that store the amount of tiles used by the player card. Immediately after (and also the offset used to correctly see the player card in TM) is the &quot;3bpp linear&quot; tile data. Its length is determined by the amount of tiles used by the player cards.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">The first player card in both year's ROMs is effectively the template used by the majority of player cards, all of which do not have any shared tiles. These player cards are easily identified as their header value always 00000000 00000000 0024. Setting the value 00000000 to either the palette offset (plus), or the tile layout offset (plus) instructs the game to use that standard palette and tile layout as seen in the first player card template. As these player cards use the template, they do not store any palette and tile layout data after the &quot;3bpp linear&quot; tile data. </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">For the minimal amount of player cards with shared tiles, you will notice they each player card carries their own repeat of the palette data, and also their individual configuration for the tile layout data, as it needs to instruct the ROM which shared tile is repeated else where. This data is similar to the format used by the rink layout data, with values from 2000 though 2023 used to map out the layout of the tiles. The first 4 bytes of the tile layout data is always 0006 0006, most probably instructing ROM the player card is 6x6 tiles.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/hw_00.png" target="_blank"><img src="images/tut/hw_00.png" width="512" height="360" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">The palette data used in both the player card template (and cards with shared tiles) appears to be the same amount of BGR colors (4 x 16 color palettes) as used dynamically in-game. As such, while the player card palette found within (highlighted in purple) can be changed, <strong>avoid changing the first two colors, 0EEE (white) and 0000 (black)</strong>. When the player cards are shown in-game, any existing screen graphics that used the same palette color locations automatically change to the colors you have set. This gives a rather undesirable look to the main menu screen.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/sg_00.png" target="_blank"><img src="images/tut/sg_00.png" width="320" height="224" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td bgcolor="#66FFFF"><div align="center"><strong><span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span> FIXING PLAYER CARDS WITH SHARED TILES IN NHL 94 &amp; NHL 95 <span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span></strong></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left"><img src="images/95/tm_000ABF10.png" width="48" height="48"> <img src="images/95/tm_000AC680.png" width="48" height="48"> <img src="images/95/tm_000ADB98.png" width="48" height="48"> <img src="images/95/tm_000AFB06.png" width="48" height="48"> <img src="images/95/tm_000B2118.png" width="48" height="48"> <img src="images/95/tm_000B477E.png" width="48" height="48"> <img src="images/95/tm_000B55C2.png" width="48" height="48"> <img src="images/95/tm_000BFDC0.png" width="48" height="48"> <img src="images/95/tm_000C3866.png" width="48" height="48"> <img src="images/95/tm_000C3FD6.png" width="48" height="48"></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><p align="left">Included in this tutorial distribution are two .IPS patch files that fix all player cards with shared tiles in both the NHL 94 (9 instances) and NHL 95 (11 instances) ROMs. These patch files will only work correctly on a ROM that has not had any of the player cards with shared tiles  updated, and have not had the same patch previously applied. Please also note that these patches do not apply the checksum fix required to boot an altered ROM.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">This patch works by changing the header of each affected player card to not use the palette stored within, as the palette data alone (not including the tile layout data) use more bytes than if the player cards didn't have any shared tiles at all. Kind of silly when you consider games in those days where all about saving bytes!</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td> <div align="left">The tile layout is still used, though it has been updated to layout the tiles in the default sequence (2000 through 2023) as used by the first player card template. I have chosen to keep the tile layout data as its keeps the same protocol of the ROM  where the next player card immediately exists right after the previous player card's tile layout data (when it has shared tiles). This will also make it easier to programmatically retrieve all player cards from a ROM when I get around to implementing its support in NOSE.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left"><img src="images/95/sg_000ABF10.png" width="48" height="48"> <img src="images/95/sg_000AC680.png" width="48" height="48"> <img src="images/95/sg_000ADB98.png" width="48" height="48"> <img src="images/95/sg_000AFB06.png" width="48" height="48"> <img src="images/95/sg_000B2118.png" width="48" height="48"> <img src="images/95/sg_000B477E.png" width="48" height="48"> <img src="images/95/sg_000B55C2.png" width="48" height="48"> <img src="images/95/sg_000BFDC0.png" width="48" height="48"> <img src="images/95/sg_000C3866.png" width="48" height="48"> <img src="images/95/sg_000C3FD6.png" width="48" height="48"></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td bgcolor="#66FFFF"><div align="center"><strong><span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span> LINKING PLAYER CARDS TO ROSTERS IN NHL 94 <span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span></strong></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">At the offset Hex &quot;<strong>000F92F4</strong>&quot;, you will find the team order player cards offset pointers that instruct the game where the player card-to-roster association data exists. The break down of the data that exists at each one of those pointer offsets can be found in the image below. </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">The player card offset that is stored in each slot is the player card offset starting at the 10 byte header data, not the &quot;3bpp linear&quot; tile data. The position &quot;<strong>Pos#</strong>&quot; value determines which player's name on your team rosters is associated to the player card. The &quot;<strong>Pos#</strong>&quot; value must equal the position of the player in your team roster starting at 0 (as opposed to start at 1 as used by the Line Configuration data found within each team). For example, your first goalie's Pos# value is 0000, and the second goalie is 0001. If the team only has two goalies, then the 1st player/skater is your 3rd rostered player, so they their  Pos# value is 0002. If your teams has 26 rostered players, and you wish to assign the player card to the last player on your list, then the Pos# value is 0019, as Hex 19 equals decimal 25 (the 26th number starting from 0). </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">The first player card offset is typically your goalie and is shown last on game's main menu, after the player cards offset slots 2 through 6 have been shown. If a team has more than six slots, then those player cards can only be seen when viewing the team though the &quot;Player Cards&quot; facility found in-game on the &quot;Start Game&quot;/&quot;Pause Menu&quot;. As you can see in red, each team player card is terminated with Hex 00000000. All players not listed with their own player card association use the generic &quot;Handedness Left/Right&quot; picture (or goalie if appropriate) when viewed in-game within &quot;Player Cards&quot;. </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left"><strong>NOTE:</strong> The Florida team player card data (highlighted in yellow) is actually stored before Anaheim. This has most probably been done as both Florida, and Anaheim both use the generic handedness left/right picture for the six main menu showcased player cards. I can only guess that because of this the developers decided to keep them together. The order shown in the image below matches that games correct team order as seen within order offset pointers.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/link_94.png" target="_blank"><img src="images/tut/link_94.png" width="512" height="360" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td bgcolor="#66FFFF"><div align="center"><strong><span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span> LINKING PLAYER CARDS TO ROSTERS IN NHL 95 <span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span></strong></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">As NHL 95 only supports showing the player cards faces on the main menu screen, the data storage method used to link players cards to rostered players has been simplified when compared to NHL 94.</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Each team (excluding All Stars East &amp; West) has allocation for six player card offsets starting at Hex &quot;<strong>000C47FC</strong>&quot;. Working from left to right, these are G, LD, RD, LW, C &amp; RW. The names that are associated to these player cards are determined by the team best line, the line used when the game is played with no line changes (NLC).</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="left">Marginally before this data at Hex &quot;<strong>000C47F0</strong>&quot; are the bytes that determine the player cards used by the All Stars East &amp; West teams. Unlike the standard NHL teams which store the offset of the player cards (starting at the 10 byte header data), the All Star player cards use a indexed value from which it sources the team/position player card offset. As shown in the image below, simply use the Hex value of <strong>X</strong> plus <strong>Y</strong> to determine the correct indexed value you wish to use for the All Star player cards. For example, <strong>X</strong> which is <strong>4</strong> and <strong>Y</strong> which is <strong>6C</strong> equals <strong>Hex 70</strong>.  This would make the game use Quebec's Center as the player card. Like the standard NHL teams, the names associated to these player cards are determined by the team's best line. </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="images/tut/link_95.png" target="_blank"><img src="images/tut/link_95.png" width="512" height="360" border="2"></a></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><strong><span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span> THE END <span class="Doc_PreReq"><strong>&ndash;&ndash;&ndash;</strong></span></strong></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</div>
+<p align="center" class="Doc_Footer"><img src="images/tut/wboy3bpp.png" width="48" height="48"></p>
+<p align="center" class="Doc_Footer"> wboy &ndash; <a href="http://www.hexaddicts.com">www.hexaddicts.com</a></p>
+<p>&nbsp;</p>
+</body>
+</html>
