@@ -22,6 +22,6 @@ There are 2 options to use:
     - The program will use the image asset data located in the import folder (listed by team abbreviation). It will only import the image assets that are present in the folder, and the program will notify you of which teams were updated, and which were not. Once done, it will ask you for a location and a name to save the modified ROM.
 
 
-The app needs certain Python modules installed locally in order to run. It was written using Python 3.9.6:
+If using the source code, this app needs certain Python modules installed locally in order to run. It was written using Python 3.9.6:
 
 - PyQt5
