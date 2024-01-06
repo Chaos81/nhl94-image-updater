@@ -151,8 +151,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 .DS_Store
-Image Updater References/CDL_05_Teams_ROM.xlsx
-Image Updater References/Plablegs_4_ROM_notes.xlsx
-.gitignore
-.gitattributes
+
+
 
