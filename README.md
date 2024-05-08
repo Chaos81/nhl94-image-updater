@@ -1,8 +1,10 @@
 # nhl94-image-updater
  
- **NHL94 Genesis ROM Image Updater version 0.2**
+ **NHL94 Genesis ROM Image Updater version 0.3**
 
 This Python app will take image assets supplied, and import them into a Genesis NHL'94 ROM. It will also export the image assets from a Genesis NHL'94 ROM and store them in byte arrays. It is useful for exporting assets from a previous ROM and importing them into a new one.
+
+As of version 0.3, this app will work with either a 30 Team ROM or 32 Team ROM.
 
 The app is designed to update and export the following image data:
 

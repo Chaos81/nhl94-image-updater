@@ -1,8 +1,9 @@
 # """ Program extracts or updates image assets for teams in a custom Genesis ROM"""
-# """ Version 0.2 """
+# """ Version 0.3 """
 # Version History
 # 0.1 - Original Python version with GUI: Import and Export of Images possible - 7/11/22
 # 0.2 - Fix collection and import of Rink Logo and Team Logo (do not touch headers)
+# 0.3 - Add 32 Team ROM option
 
 from importlib.resources import path
 import sys
@@ -38,6 +39,7 @@ class iUpdate(QMainWindow):
         self.tmptrs = []
         self.imgoffsets = []
         self.teamcnt = 24
+        self.romtype = 30
       
         # Connect Actions
         self.ui.actionQuit.triggered.connect(self.cleanUp)
@@ -65,7 +67,7 @@ class iUpdate(QMainWindow):
         # About
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Question)
-        msg.setText("NHL '94 Genesis ROM Image Updater version 0.1.\n\nAny problems or questions, please visit nhl94.com, "
+        msg.setText("NHL '94 Genesis ROM Image Updater version 0.3.\n\nAny problems or questions, please visit nhl94.com, "
                     "or email: chaos@nhl94.com")
         # msg.setStandardButtons(QMessageBox.OK)
         msg.exec_()
@@ -74,10 +76,11 @@ class iUpdate(QMainWindow):
         # Help
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Question)
-        msg.setText("NHL '94 Genesis ROM Image Updater version 0.2.\n\n This program is designed to update image assets "
+        msg.setText("NHL '94 Genesis ROM Image Updater version 0.3.\n\n This program is designed to update image assets "
                     "of a custom ROM (team logos, center ice logos, jersey palettes, banners). Before running, "
-                    "please make sure the team names and rosters are already set in the ROM, and set the number of active "
-                    " teams in the ROM. There are 2 options you can use: \n\nExtract Images:\n Load the ROM in the program, "
+                    "choose if you are using a 30 team ROM or a 32 team ROM. Please make sure the team names and rosters "
+                    " are already set in the ROM, and set the number of active "
+                    "teams in the ROM. There are 2 options you can use: \n\nExtract Images:\n Load the ROM in the program, "
                     "set the number of active teams, then click the Extract Images button. The program will output a folder "
                     "ROMs name containing the image assets for each team (listed by their team abbreviation).\n\nImport Images:\n"
                     "The program will use image asset data located in the import folder, and import it into the selected ROM. "
@@ -111,43 +114,80 @@ class iUpdate(QMainWindow):
                 self.ui.actionExtractImages.setEnabled(True)
 
     def getImgOffsets(self):
-        # Create Image Offset dictionary, append to the Image Offset list (30 team ROM)
+        # Create Image Offset dictionary, append to the Image Offset list (30 or 32 team ROM)
         # Only storing for the number of active teams
-        # This may have more use when 32 team ROM is added (different offsets)
         
-        for count in range(0, self.teamcnt):
-            # Starting Rink Logo Image Offset - 1D6F02 (start of first image), 300 each image
-            rloffset = int('1D6F02', 16) + (int('30A', 16) * count) # 300 + A for header of next image
-            print('Rink Logo Offset: ' + str(rloffset))
-            #f.seek(rloffset)
-            #rlogo = b2a_hex(f.read(int('30A', 16)))
-            
-            # Starting Team Logo Image Offset - 1C85B8, 4CC each image
-            tloffset = int('1C85B8', 16) + (int('4D6', 16) * count) # 4CC + A for header of next image
-            print('Team Logo Offset: ' + str(tloffset))
-            #f.seek(tloffset)
-            #tmlogo = b2a_hex(f.read(int('4D6', 16)))
+        if self.romtype == 32:
+            for count in range(0, self.teamcnt):
+                # Starting Rink Logo Image Offset - 1E317E (start of first image), 300 each image
+                rloffset = int('1E317E', 16) + (int('30A', 16) * count) # 300 + A for header of next image
+                print('Rink Logo Offset: ' + str(rloffset))
+                #f.seek(rloffset)
+                #rlogo = b2a_hex(f.read(int('30A', 16)))
+                
+                # Starting Team Logo Image Offset - 1D38B0, 4CC each image
+                tloffset = int('1D38B0', 16) + (int('4D6', 16) * count) # 4CC + A for header of next image
+                print('Team Logo Offset: ' + str(tloffset))
+                #f.seek(tloffset)
+                #tmlogo = b2a_hex(f.read(int('4D6', 16)))
 
-            # Starting Team Logo Palette Offset - 1C81EE, 20 each palette (Hex)
-            lpoffset = int('1C81EE', 16) + (int('20', 16) * count)
-            print('Team Logo Palette Offset: ' + str(lpoffset))
-            #f.seek(lpoffset)
-            #tmlogopal = b2a_hex(f.read(int('20', 16)))
+                # Starting Team Logo Palette Offset - 1D34A6, 20 each palette (Hex)
+                lpoffset = int('1D34A6', 16) + (int('20', 16) * count)
+                print('Team Logo Palette Offset: ' + str(lpoffset))
+                #f.seek(lpoffset)
+                #tmlogopal = b2a_hex(f.read(int('20', 16)))
 
-            # Banner Image Offset - 1D16CC, 2C0 each banner
-            banoffset = int('1D16CC', 16) + (int('2C0', 16) * count)
-            print('Banner Offset: ' + str(banoffset))
-            #f.seek(banoffset)
-            #banner = b2a_hex(f.read(int('2C0', 16)))
+                # Banner Image Offset - 1DD370, 2C0 each banner
+                banoffset = int('1DD370', 16) + (int('2C0', 16) * count)
+                print('Banner Offset: ' + str(banoffset))
+                #f.seek(banoffset)
+                #banner = b2a_hex(f.read(int('2C0', 16)))
 
-            # Home/Visitor Palette - 1C6982, 40 each palette (Hex)
-            hvpaloffset = int('1C6982', 16) + (int('40', 16) * count) 
-            print('Home/Visitor Palette Offset: ' + str(hvpaloffset))
-            #f.seek(hvpaloffset)
-            #hmvispal = b2a_hex(f.read(int('40', 16)))
+                # Home/Visitor Palette - 1D1B0A, 40 each palette (Hex)
+                hvpaloffset = int('1D1B0A', 16) + (int('40', 16) * count) 
+                print('Home/Visitor Palette Offset: ' + str(hvpaloffset))
+                #f.seek(hvpaloffset)
+                #hmvispal = b2a_hex(f.read(int('40', 16)))
 
-            self.imgoffsets.append(dict(rloffset=rloffset, tloffset=tloffset, lpoffset=lpoffset, banoffset=banoffset, 
-                hvpaloffset=hvpaloffset))
+                self.imgoffsets.append(dict(rloffset=rloffset, tloffset=tloffset, lpoffset=lpoffset, banoffset=banoffset, 
+                    hvpaloffset=hvpaloffset))
+        else:
+                
+            for count in range(0, self.teamcnt):
+                # Starting Rink Logo Image Offset - 1D6F02 (start of first image), 300 each image
+                rloffset = int('1D6F02', 16) + (int('30A', 16) * count) # 300 + A for header of next image
+                print('Rink Logo Offset: ' + str(rloffset))
+                #f.seek(rloffset)
+                #rlogo = b2a_hex(f.read(int('30A', 16)))
+                
+                # Starting Team Logo Image Offset - 1C85B8, 4CC each image
+                tloffset = int('1C85B8', 16) + (int('4D6', 16) * count) # 4CC + A for header of next image
+                print('Team Logo Offset: ' + str(tloffset))
+                #f.seek(tloffset)
+                #tmlogo = b2a_hex(f.read(int('4D6', 16)))
+
+                # Starting Team Logo Palette Offset - 1C81EE, 20 each palette (Hex)
+                lpoffset = int('1C81EE', 16) + (int('20', 16) * count)
+                print('Team Logo Palette Offset: ' + str(lpoffset))
+                #f.seek(lpoffset)
+                #tmlogopal = b2a_hex(f.read(int('20', 16)))
+
+                # Banner Image Offset - 1D16CC, 2C0 each banner
+                banoffset = int('1D16CC', 16) + (int('2C0', 16) * count)
+                print('Banner Offset: ' + str(banoffset))
+                #f.seek(banoffset)
+                #banner = b2a_hex(f.read(int('2C0', 16)))
+
+                # Home/Visitor Palette - 1C6982, 40 each palette (Hex)
+                hvpaloffset = int('1C6982', 16) + (int('40', 16) * count) 
+                print('Home/Visitor Palette Offset: ' + str(hvpaloffset))
+                #f.seek(hvpaloffset)
+                #hmvispal = b2a_hex(f.read(int('40', 16)))
+
+                self.imgoffsets.append(dict(rloffset=rloffset, tloffset=tloffset, lpoffset=lpoffset, banoffset=banoffset, 
+                    hvpaloffset=hvpaloffset))
+                
+    
               
     def writeData(self, rom, data):
         # Write data in data list to ROM
@@ -166,6 +206,14 @@ class iUpdate(QMainWindow):
         # Set number of Teams
 
         self.teamcnt = self.ui.numTeams.value()
+
+        # Set ROM Type
+
+        type = self.ui.romType.currentIndex()
+        if type == 1:
+            self.romtype = 32
+        else:
+            self.romtype = 30
 
         # Retrieve Team Pointer List from ROM
 
@@ -297,7 +345,7 @@ class iUpdate(QMainWindow):
         # Team Offset Start Position:
         # GENS - 782 (030E)
 
-        # Retrieve # of Teams from GUI (right now, maximum of 30)
+        # Retrieve # of Teams from GUI (right now, maximum of 32)
 
         numteams = self.teamcnt
 
@@ -542,6 +590,14 @@ class iUpdate(QMainWindow):
         # Set number of Teams
 
         self.teamcnt = self.ui.numTeams.value()
+
+         # Set ROM Type
+
+        type = self.ui.romType.currentIndex()
+        if type == 1:
+            self.romtype = 32
+        else:
+            self.romtype = 30
 
         # Retrieve Team Pointer List from ROM
 
